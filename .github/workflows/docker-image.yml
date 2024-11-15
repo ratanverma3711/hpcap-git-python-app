@@ -17,12 +17,12 @@ jobs:
     - name: Build the Docker image
 
       env:
-      USER: ${{secrets.USER}}
-      PASS: ${{sewcrets.PASS}}
-      run: docker build . --file Dockerfile --tag iratan7890/github:latest
-      echo $USER
-      echo $PASS
-      docker build . --file Dockerfile 
+      USER: ${{ secrets.USER }}
+      PASS: ${{ sewcrets.PASS }}
+      run: |
+       echo $USER
+       echo $PASS
+      docker build . --file Dockerfile --tag ratan7890/hpcap-ci-demo:latest
       docker login -u $USER -p $PASS
-      docker push ratan7890/ratan1
+      docker push ratan7890/hpcap-ci-demo:latest
       
